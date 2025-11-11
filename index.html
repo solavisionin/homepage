@@ -14,24 +14,24 @@
       theme: {
         extend: {
           colors: {
-            border: '#ADBC9F', // 연한 녹색
-            background: 'hsl(0 0% 100%)', // 기본 흰색
-            foreground: '#12372A', // 기본 글자 (진한 녹색)
+            border: '#ADBC9F', // 기존 유지 (연한 녹색)
+            background: '#F9F6F1', // 변경: F9F6F1
+            foreground: '#568F6D', // 변경: 568F6D (기본 글자색)
             primary: {
-              DEFAULT: '#436850', // 중간 녹색 (메인색)
-              foreground: '#FBFADA', // 메인색 위 글자 (크림색)
-              10: '#4368501A' // ProgramCard 아이콘 배경 (중간녹색 10%)
+              DEFAULT: '#568F6D', // 변경: 568F6D (메인색)
+              foreground: '#F9F6F1', // 변경: F9F6F1 (메인색 위 글자)
+              10: '#568F6D1A' // ProgramCard 아이콘 배경 (메인색 10%)
             },
             secondary: {
-              DEFAULT: '#FBFADA', // 보조 배경 (크림색)
-              foreground: '#436850', // 보조 배경 위 글자 (중간 녹색)
+              DEFAULT: '#eee3D3', // 변경: eee3D3 (보조 배경)
+              foreground: '#568F6D', // 변경: 568F6D (보조 배경 위 글자)
             },
             muted: {
-              foreground: '#436850' // Muted 글자 (중간 녹색)
+              foreground: '#568F6D' // 변경: 568F6D (Muted 글자)
             },
             card: {
-              DEFAULT: 'hsl(0 0% 100%)', // 카드는 흰색
-              foreground: '#12372A',
+              DEFAULT: '#F9F6F1', // 변경: F9F6F1 (카드는 흰색 대신 기본 배경색)
+              foreground: '#568F6D', // 변경: 568F6D
             },
             boxShadow: {
               soft: '0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03)',
@@ -47,7 +47,7 @@
 
 <body class="min-h-screen bg-background text-foreground">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm border-b border-border">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm shadow-sm border-b border-border">
     <div class="container mx-auto max-w-7xl px-4">
       <div class="flex items-center justify-between h-20">
         <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary">
@@ -67,8 +67,7 @@
   <main>
     
         <section class="relative h-[600px] flex items-center justify-center overflow-hidden pt-20">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('center2.jpg')">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('gate1.jpg')"> <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60"></div>
     </div>
     <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
       <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -239,6 +238,8 @@
           <div class="overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-300">
             <img src="center7.jpg" alt="상담실 2" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
           </div>
+          <div class="overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-300">
+            <img src="center8.jpg" alt="상담실 3" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500"> </div>
           
         </div>
       </div>
