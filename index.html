@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>비전인 심리상담센터</title>
+  <title>비전인 심리상담센터 - 상담신청</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -31,6 +31,10 @@
             card: {
               DEFAULT: '#FFFFFF',
               foreground: '#568F6D',
+            },
+            boxShadow: {
+              soft: '0 4px 20px -2px rgba(86, 143, 109, 0.1)',
+              medium: '0 10px 25px -5px rgba(86, 143, 109, 0.15)',
             }
           }
         }
@@ -38,377 +42,319 @@
     }
   </script>
   <style>
-    html { 
-      scroll-behavior: smooth;
+    html { scroll-behavior: smooth; }
+    /* 라디오 버튼 커스텀 색상 */
+    input[type="radio"]:checked {
+        accent-color: #568F6D;
     }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
-    
-    @media (max-width: 768px) {
-      .mobile-menu {
-        transition: transform 0.3s ease-in-out;
-      }
-      .mobile-menu.open {
-        transform: translateX(0);
-      }
+    input[type="checkbox"]:checked {
+        accent-color: #568F6D;
     }
   </style>
 </head>
 
 <body class="min-h-screen bg-background text-foreground font-sans">
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-sm border-b border-border/30">
-    <div class="container mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="flex items-center justify-between h-16 sm:h-20">
-        <a href="/" class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
-          <i data-lucide="hand-heart" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+  <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md shadow-sm border-b border-border/30">
+    <div class="container mx-auto max-w-7xl px-6">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
+          <i data-lucide="hand-heart" class="w-8 h-8"></i>
           <span>비전인 상담센터</span>
         </a>
-        
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-base font-medium">
+        <nav class="hidden md:flex items-center gap-8 text-base font-medium">
           <a href="#about" class="hover:text-primary/70 transition-colors">센터소개</a>
           <a href="#programs" class="hover:text-primary/70 transition-colors">상담 프로그램</a>
           <a href="#counselors" class="hover:text-primary/70 transition-colors">전문가 소개</a>
-          <a href="#contact" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm hover:shadow-md">상담 신청</a>
-        </nav>
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors">
-          <i data-lucide="menu" class="w-6 h-6 text-primary"></i>
-        </button>
-      </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 bottom-0 w-64 bg-white shadow-2xl transform translate-x-full md:hidden z-50">
-      <div class="p-6">
-        <button id="close-menu-btn" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-primary/10 transition-colors">
-          <i data-lucide="x" class="w-6 h-6 text-primary"></i>
-        </button>
-        <nav class="flex flex-col gap-4 mt-12">
-          <a href="#about" class="text-lg font-medium text-foreground hover:text-primary transition-colors py-2">센터소개</a>
-          <a href="#programs" class="text-lg font-medium text-foreground hover:text-primary transition-colors py-2">상담 프로그램</a>
-          <a href="#counselors" class="text-lg font-medium text-foreground hover:text-primary transition-colors py-2">전문가 소개</a>
-          <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm mt-4">상담 신청</a>
+          <a href="#contact" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-soft">상담 신청</a>
         </nav>
       </div>
     </div>
   </header>
 
   <main>
-    
-    <!-- Hero Section -->
-    <section class="relative h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
-      <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105" style="background-image: url('gate1.png'); background-color: #568F6D;">
-        <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
-      </div>
-      
-      <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg fade-in-up">
-          비전인이 함께 합니다
-        </h1>
-        <p class="text-lg sm:text-xl md:text-2xl opacity-95 font-light drop-shadow-md fade-in-up delay-100">
-          내면의 진리를 탐구하고 성장하는 여정을<br class="md:hidden" /> 함께합니다
-        </p>
-        <div class="pt-4 fade-in-up delay-200">
-          <a href="#contact" class="inline-flex items-center justify-center rounded-full text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 font-bold bg-white text-primary hover:bg-secondary transition-all shadow-lg hover:shadow-xl group">
+    <section class="relative h-[400px] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('gate1.png'); background-color: #568F6D;">
+          <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto space-y-4">
+          <h1 class="text-4xl md:text-5xl font-bold drop-shadow-md">
             상담 신청하기
-            <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section id="programs" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
-      <div class="container mx-auto max-w-7xl">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">어떤 도움이 필요하신가요?</h2>
-          <p class="text-base sm:text-lg text-muted-foreground">전문적이고 따뜻한 상담 서비스를 제공합니다</p>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          
-          <div class="p-6 sm:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 bg-primary-10 rounded-xl sm:rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
-              <i data-lucide="user" class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground mb-2">개인 상담</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">나를 알아가는<br>일대일 맞춤형 상담</p>
-          </div>
-          
-          <div class="p-6 sm:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 bg-primary-10 rounded-xl sm:rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
-              <i data-lucide="users" class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground mb-2">집단 상담</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">함께 소통하며 성장하는<br>그룹 상담 프로그램</p>
-          </div>
-          
-          <div class="p-6 sm:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 bg-primary-10 rounded-xl sm:rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
-              <i data-lucide="heart" class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground mb-2">부부/커플 상담</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">관계를 회복하고<br>깊은 소통을 돕습니다</p>
-          </div>
-          
-          <div class="p-6 sm:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 bg-primary-10 rounded-xl sm:rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
-              <i data-lucide="home" class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground mb-2">가족 상담</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">가족 구성원 간의<br>이해와 화합</p>
-          </div>
-          
-          <div class="p-6 sm:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 bg-primary-10 rounded-xl sm:rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
-              <i data-lucide="file-text" class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground mb-2">심리 검사</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">객관적이고 전문적인<br>종합 심리 평가</p>
-          </div>
-          
-          <div class="p-6 sm:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-6 bg-primary-10 rounded-xl sm:rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
-              <i data-lucide="target" class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground mb-2">진로 상담</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">적성을 찾고<br>미래를 설계합니다</p>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary/50">
-      <div class="container mx-auto max-w-4xl text-center">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 sm:mb-8">비전인 상담센터의 약속</h2>
-        <div class="bg-white p-8 sm:p-10 lg:p-12 rounded-2xl sm:rounded-3xl shadow-sm">
-          <p class="text-base sm:text-lg lg:text-xl text-foreground/80 leading-relaxed sm:leading-loose">
-            내면의 진리를 탐구하고 성장하도록 찾는 이들과 함께 합니다.<br>
-            우리는 모든 상담자의 이야기에 귀 기울이며,<br>
-            그들이 <strong class="text-primary">스스로의 힘을 발견</strong>하고 <strong class="text-primary">삶의 의미</strong>를 찾아갈 수 있도록<br>
-            전문적이고 따뜻한 지원을 제공합니다.
+          </h1>
+          <p class="text-lg md:text-xl opacity-95 font-light">
+            용기 내어 내딛는 첫 걸음을 환영합니다.
           </p>
         </div>
-      </div>
     </section>
 
-    <!-- Counselors Section -->
-    <section id="counselors" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
-      <div class="container mx-auto max-w-7xl">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">함께하는 전문가들</h2>
-          <p class="text-base sm:text-lg text-muted-foreground">풍부한 경험과 전문성을 갖춘 상담사들이 함께합니다</p>
-        </div>
+    <section id="contact" class="py-20 px-4">
+      <div class="container mx-auto max-w-5xl">
         
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 max-w-5xl mx-auto">
-          
-          <div class="text-center group">
-            <div class="mb-6 relative inline-block">
-              <img src="이재원image4.png" alt="이재원" class="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mx-auto rounded-full object-cover shadow-lg border-4 border-transparent group-hover:border-primary/20 transition-all bg-gray-200">
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="md:col-span-2 bg-white p-8 md:p-10 rounded-3xl shadow-medium border border-border/30">
+                
+                <div class="mb-8 border-b border-border/20 pb-6">
+                    <h2 class="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                        <i data-lucide="pen-line" class="w-6 h-6"></i>
+                        심리상담 예약하기
+                    </h2>
+                    <div class="text-sm space-y-1 text-muted-foreground bg-background p-4 rounded-lg">
+                        <p>• <span class="font-bold text-primary">모든 상담은 100% 예약제</span>로 운영됩니다. 😊</p>
+                        <p>• 신청서를 작성해주시면 담당자가 확인 후 연락드립니다.</p>
+                        <p>• 작성해주신 내용은 비밀이 철저히 보장됩니다.</p>
+                    </div>
+                </div>
+
+                <form id="counselingForm" onsubmit="sendEmail(event)" class="space-y-6">
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-foreground mb-2">상담 방식 <span class="text-red-500">*</span></label>
+                        <div class="flex gap-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="type" value="대면" checked class="w-4 h-4 text-primary">
+                                <span>대면 (센터 방문)</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="type" value="비대면" class="w-4 h-4 text-primary">
+                                <span>비대면 (ZOOM 화상)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">이름 <span class="text-red-500">*</span></label>
+                            <input type="text" id="name" placeholder="실명을 입력해주세요" required
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-2">성별 <span class="text-red-500">*</span></label>
+                            <div class="flex gap-6 mt-3">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="gender" value="남성" class="w-4 h-4 text-primary">
+                                    <span>남성</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="gender" value="여성" class="w-4 h-4 text-primary">
+                                    <span>여성</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">출생연도 <span class="text-red-500">*</span></label>
+                            <input type="text" id="birthyear" placeholder="예) 1990" required
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">거주지 <span class="text-red-500">*</span></label>
+                            <input type="text" id="address" placeholder="예) 서울 구로구, 경기 광명시 등" required
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">연락처 <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" placeholder="010-0000-0000" required
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">이메일 <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" placeholder="example@email.com" required
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">카카오톡 ID</label>
+                            <input type="text" id="kakao" placeholder="해외 거주 시 필수"
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-foreground mb-1">접수연락(통화) 가능 시간 <span class="text-red-500">*</span></label>
+                            <input type="text" id="calltime" placeholder="예) 평일 오후 2시~5시" required
+                                class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-foreground mb-1">상담 신청 동기 <span class="text-red-500">*</span></label>
+                        <textarea id="reason" rows="5" placeholder="상담을 받고 싶은 이유나 현재 겪고 있는 어려움에 대해 간략히 적어주세요." required
+                            class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-foreground mb-2">현재 타 기관에서 상담을 받고 계신가요? <span class="text-red-500">*</span></label>
+                        <div class="flex gap-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="other_counseling" value="예" class="w-4 h-4 text-primary">
+                                <span>예 (그렇다)</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="other_counseling" value="아니오" class="w-4 h-4 text-primary">
+                                <span>아니오 (아니다)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-foreground mb-1">기타 문의사항</label>
+                        <textarea id="inquiry" rows="3" placeholder="희망하는 상담사나 상담 절차 등 궁금한 점이 있다면 적어주세요."
+                            class="w-full p-3 rounded-lg border border-border/50 bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow"></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-2 pt-2">
+                        <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="privacy" class="text-sm text-muted-foreground">
+                            (필수) 심리상담 진행을 위한 개인정보 수집 및 활용에 동의합니다.
+                        </label>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full py-4 rounded-xl bg-primary text-white font-bold text-lg shadow-medium hover:bg-primary/90 hover:scale-[1.01] transition-all duration-200 flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            상담 신청서 보내기 (메일전송)
+                        </button>
+                        <p class="text-xs text-center text-muted-foreground mt-3">
+                            * 버튼을 누르면 이메일 앱이 실행됩니다. 내용이 보이지 않으면 메일 본문에 붙여넣기 해주세요.
+                        </p>
+                    </div>
+
+                </form>
             </div>
-            <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-1">이재원</h3>
-            <p class="text-primary font-medium text-sm sm:text-base">센터장 / 임상심리전문가</p>
-          </div>
-          
-          <div class="text-center group">
-            <div class="mb-6 relative inline-block">
-              <img src="성기영image5.png" alt="성기영" class="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mx-auto rounded-full object-cover shadow-lg border-4 border-transparent group-hover:border-primary/20 transition-all bg-gray-200">
+
+            <div class="space-y-8">
+                <div class="bg-white p-8 rounded-3xl shadow-soft border border-border/30 sticky top-24">
+                    <h3 class="text-xl font-bold text-foreground mb-6">문의 안내</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i data-lucide="phone" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-foreground">전화 문의</p>
+                                <p class="text-lg">070-4415-7707</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i data-lucide="mail" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-foreground">이메일 문의</p>
+                                <p class="text-sm break-all">contact@visionin.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-foreground">오시는 길</p>
+                                <p class="text-sm text-muted-foreground mt-1">
+                                    서울시 구로구 디지털로 271<br>
+                                    벽산디지털밸리 3차, 305호
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-6 border-border/30">
+
+                    <div class="rounded-2xl overflow-hidden h-64 bg-gray-100 border border-border/20">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.364966366748!2d126.8939613153101!3d37.48915397981243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e180202369d%3A0x4311629277099404!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDrlJTsp4DthLjroZwgMjcx!5e0!3m2!1sko!2skr!4v1620000000000!5m2!1sko!2skr"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
             </div>
-            <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-1">성기영</h3>
-            <p class="text-primary font-medium text-sm sm:text-base">상담심리전문가</p>
-          </div>
-          
-          <div class="text-center group sm:col-span-2 lg:col-span-1">
-            <div class="mb-6 relative inline-block">
-              <img src="정우선image6.png" alt="정우선" class="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mx-auto rounded-full object-cover shadow-lg border-4 border-transparent group-hover:border-primary/20 transition-all bg-gray-200">
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-1">정우선</h3>
-            <p class="text-primary font-medium text-sm sm:text-base">상담심리사</p>
-          </div>
-          
+
         </div>
       </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary/30">
-      <div class="container mx-auto max-w-7xl">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">편안한 상담 공간</h2>
-          <p class="text-base sm:text-lg text-muted-foreground">안전하고 아늑한 환경에서 마음을 나눌 수 있습니다</p>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center1.jpg" alt="상담실" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center2.jpg" alt="대기실" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center3.jpg" alt="개인 상담실" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center4.jpg" alt="집단 상담실" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center5.jpg" alt="센터 입구" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center6.jpg" alt="센터 복도" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center7.jpg" alt="상담실 2" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          <div class="overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg cursor-pointer group">
-            <img src="center8.png" alt="상담실 3" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700 bg-gray-300">
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
-      <div class="container mx-auto max-w-7xl">
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          
-          <div>
-            <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 flex flex-wrap items-center gap-2 sm:gap-3">
-              이용 안내 <span class="text-xs sm:text-sm font-normal bg-primary/10 text-primary px-3 py-1 rounded-full">예약제 운영</span>
-            </h2>
-            <div class="space-y-4 sm:space-y-6">
-              <div class="p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-border/30">
-                <div class="flex items-start gap-3 sm:gap-4">
-                  <i data-lucide="clock" class="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1 flex-shrink-0"></i>
-                  <div>
-                    <h3 class="font-bold text-base sm:text-lg mb-1 text-foreground">운영 시간</h3>
-                    <p class="text-sm sm:text-base text-muted-foreground">평일 10:00 - 18:00<br class="sm:hidden"> (주말/공휴일 휴무)</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-border/30">
-                <div class="flex items-start gap-3 sm:gap-4">
-                  <i data-lucide="phone" class="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1 flex-shrink-0"></i>
-                  <div>
-                    <h3 class="font-bold text-base sm:text-lg mb-1 text-foreground">예약 문의</h3>
-                    <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      100% 사전 예약제로 운영됩니다.<br>
-                      <span class="block mt-2 text-foreground font-medium">Tel: 070-4415-7707</span>
-                      <span class="block text-foreground font-medium">Email: contact@visionin.com</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-border/30">
-                <div class="flex items-start gap-3 sm:gap-4">
-                  <i data-lucide="map-pin" class="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1 flex-shrink-0"></i>
-                  <div>
-                    <h3 class="font-bold text-base sm:text-lg mb-1 text-foreground">오시는 길</h3>
-                    <p class="text-sm sm:text-base text-muted-foreground">
-                      서울시 구로구 디지털로 271<br>
-                      벽산디지털밸리 3차, 305호
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="h-full">
-            <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">찾아오시는 길</h2>
-            <div class="rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-border/30 h-[350px] sm:h-[450px] lg:h-[500px] bg-gray-100 relative">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.364966366748!2d126.8939613153101!3d37.48915397981243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e180202369d%3A0x4311629277099404!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDrlJTsp4DthLjroZwgMjcx!5e0!3m2!1sko!2skr!4v1620000000000!5m2!1sko!2skr"
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-foreground text-background py-12 sm:py-16 px-4 sm:px-6">
-    <div class="container mx-auto max-w-7xl text-center space-y-4">
-      <div class="flex justify-center items-center gap-2 mb-4 sm:mb-6">
-        <i data-lucide="hand-heart" class="w-7 h-7 sm:w-8 sm:h-8"></i>
-        <span class="text-xl sm:text-2xl font-bold">비전인 심리상담센터</span>
+  <footer class="bg-foreground text-background py-12 px-6">
+    <div class="container mx-auto max-w-7xl text-center">
+      <div class="flex justify-center items-center gap-2 mb-4">
+          <i data-lucide="hand-heart" class="w-6 h-6"></i>
+          <span class="text-xl font-bold">비전인 심리상담센터</span>
       </div>
-      <div class="opacity-80 space-y-1 text-sm sm:text-base">
-        <p>주소: 서울시 구로구 디지털로 271 벽산디지털밸리 3차, 305호</p>
-        <p>전화: 070-4415-7707 | 이메일: contact@visionin.com</p>
-      </div>
-      <div class="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-background/20 opacity-60 text-xs sm:text-sm">
+      <p class="opacity-70 text-sm mb-6">
+        당신의 이야기를 들을 준비가 되어 있습니다.
+      </p>
+      <div class="opacity-50 text-xs border-t border-white/20 pt-6">
         © 2024 VisionIn Counseling Center. All Rights Reserved.
       </div>
     </div>
   </footer>
 
   <script>
-    // Initialize Lucide icons
     lucide.createIcons();
-    
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuLinks = mobileMenu.querySelectorAll('a');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('open');
-    });
-    
-    closeMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-    });
-    
-    // Close mobile menu when clicking on a link
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        mobileMenu.classList.remove('open');
-      }
-    });
+
+    // 이메일 보내기 기능 (서버 없이 메일 클라이언트 연동)
+    function sendEmail(e) {
+        e.preventDefault();
+        
+        const form = document.getElementById('counselingForm');
+        
+        // 폼 데이터 가져오기
+        const type = document.querySelector('input[name="type"]:checked')?.value || '선택안함';
+        const name = document.getElementById('name').value;
+        const gender = document.querySelector('input[name="gender"]:checked')?.value || '선택안함';
+        const birthyear = document.getElementById('birthyear').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const kakao = document.getElementById('kakao').value;
+        const calltime = document.getElementById('calltime').value;
+        const reason = document.getElementById('reason').value;
+        const other = document.querySelector('input[name="other_counseling"]:checked')?.value || '선택안함';
+        const inquiry = document.getElementById('inquiry').value;
+
+        // 이메일 본문 구성
+        const mailSubject = `[상담신청] ${name}님 상담 신청서입니다.`;
+        const mailBody = `
+[상담 신청서]
+
+1. 상담 방식: ${type}
+2. 이름: ${name}
+3. 성별: ${gender}
+4. 출생연도: ${birthyear}
+5. 거주지: ${address}
+6. 연락처: ${phone}
+7. 이메일: ${email}
+8. 카카오톡 ID: ${kakao}
+9. 통화 가능 시간: ${calltime}
+
+10. 상담 신청 동기:
+${reason}
+
+11. 타 기관 상담 여부: ${other}
+
+12. 기타 문의사항:
+${inquiry}
+        `;
+
+        // mailto 링크 생성 (인코딩 처리)
+        const mailtoLink = `mailto:contact@visionin.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+        
+        // 메일 앱 열기
+        window.location.href = mailtoLink;
+    }
   </script>
 </body>
 </html>
