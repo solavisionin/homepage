@@ -44,6 +44,9 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
+    /* 한국어 단어 단위 줄바꿈 처리 */
+    .break-keep { word-break: keep-all; }
+    
     .group:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
@@ -61,7 +64,7 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-background text-foreground font-sans">
+<body class="min-h-screen bg-background text-foreground font-sans break-keep">
 
   <header class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-sm border-b border-border/30">
     <div class="container mx-auto max-w-7xl px-6">
@@ -142,8 +145,12 @@
         <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
       </div>
       <div class="relative z-10 text-center text-white px-4 space-y-6">
-        <h1 class="text-5xl md:text-6xl font-bold drop-shadow-lg">비전인이 함께 합니다</h1>
-        <p class="text-xl md:text-2xl opacity-95 font-light">내면의 진리를 탐구하고 성장하는 여정을 함께합니다</p>
+        <h1 class="text-5xl md:text-6xl font-bold drop-shadow-lg leading-tight">
+            비전인이 <br class="block md:hidden" /> 함께 합니다
+        </h1>
+        <p class="text-xl md:text-2xl opacity-95 font-light leading-relaxed">
+            내면의 진리를 탐구하고 <br class="block md:hidden" /> 성장하는 여정을 함께합니다
+        </p>
         <div class="pt-6">
           <a href="#reservation" class="inline-flex items-center justify-center rounded-full px-10 py-4 font-bold bg-white text-primary hover:bg-secondary transition-all shadow-lg hover:shadow-xl group">
             상담 예약하기 <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
@@ -183,58 +190,58 @@
     </section>
 
     <section id="counselors" class="py-24 px-6 bg-secondary/30">
-  <div class="container mx-auto max-w-7xl">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-foreground mb-4">함께하는 전문가들</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-center">
-      <div class="group">
-        <img src="이재원image4.png" class="w-52 h-52 mx-auto rounded-full object-cover shadow-lg mb-6 bg-gray-200">
-        <h3 class="text-2xl font-bold">이재원</h3>
-        <p class="text-primary">전략형 상담가</p>
-        <div class="text-left mt-4 text-sm text-gray-700 space-y-2">
-            <h4 class="font-semibold text-foreground">주요 약력:</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>미국 EVANGEL 상담학 박사</li>
-                <li>두잉협동조합 대표</li>
-                <li>임상심리사(심리검사)</li>
-                <li>진로코칭, 라이프코칭, 컨설팅, 부모교육</li>
-            </ul>
+      <div class="container mx-auto max-w-7xl">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-foreground mb-4">함께하는 전문가들</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-center">
+          <div class="group">
+            <img src="이재원image4.png" class="w-52 h-52 mx-auto rounded-full object-cover shadow-lg mb-6 bg-gray-200">
+            <h3 class="text-2xl font-bold">이재원</h3>
+            <p class="text-primary">전략형 상담가</p>
+            <div class="text-left mt-4 text-sm text-gray-700 space-y-2">
+                <h4 class="font-semibold text-foreground">주요 약력:</h4>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>미국 EVANGEL 상담학 박사</li>
+                    <li>두잉협동조합 대표</li>
+                    <li>임상심리사(심리검사)</li>
+                    <li>진로코칭, 라이프코칭, 컨설팅, 부모교육</li>
+                </ul>
+            </div>
+          </div>
+          <div class="group">
+            <img src="성기영image5.png" class="w-52 h-52 mx-auto rounded-full object-cover shadow-lg mb-6 bg-gray-200">
+            <h3 class="text-2xl font-bold">성기영</h3>
+            <p class="text-primary">탐구형 상담가</p>
+            <div class="text-left mt-4 text-sm text-gray-700 space-y-2">
+                <h4 class="font-semibold text-foreground">주요 약력:</h4>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>미국 EVANGEL 상담학 박사 과정</li>
+                    <li>비전인사회적협동조합 대표</li>
+                    <li>의정부 보호관찰소 보호관찰위원</li>
+                    <li>전문상담사(개인, 가족, 집단, 미술상담)</li>
+                    <li>임상심리사, 청소년상담사, 이마고부부치료</li>
+                </ul>
+            </div>
+          </div>
+          <div class="group">
+            <img src="정우선image6.png" class="w-52 h-52 mx-auto rounded-full object-cover shadow-lg mb-6 bg-gray-200">
+            <h3 class="text-2xl font-bold">정우선</h3>
+            <p class="text-primary">분석적 상담가</p>
+            <div class="text-left mt-4 text-sm text-gray-700 space-y-2">
+                <h4 class="font-semibold text-foreground">주요 약력:</h4>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>백석 교육대학원 코칭심리학 석사</li>
+                    <li>두잉협동조합 팀장</li>
+                    <li>청소년상담사, 임상심리사</li>
+                    <li>진로심리검사, MBTI전문강사</li>
+                    <li>진로코칭, 라이프코칭</li>
+                </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="group">
-        <img src="성기영image5.png" class="w-52 h-52 mx-auto rounded-full object-cover shadow-lg mb-6 bg-gray-200">
-        <h3 class="text-2xl font-bold">성기영</h3>
-        <p class="text-primary">탐구형 상담가</p>
-        <div class="text-left mt-4 text-sm text-gray-700 space-y-2">
-            <h4 class="font-semibold text-foreground">주요 약력:</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>미국 EVANGEL 상담학 박사 과정</li>
-                <li>비전인사회적협동조합 대표</li>
-                <li>의정부 보호관찰소 보호관찰위원</li>
-                <li>전문상담사(개인, 가족, 집단, 미술상담)</li>
-                <li>임상심리사, 청소년상담사, 이마고부부치료</li>
-            </ul>
-        </div>
-      </div>
-      <div class="group">
-        <img src="정우선image6.png" class="w-52 h-52 mx-auto rounded-full object-cover shadow-lg mb-6 bg-gray-200">
-        <h3 class="text-2xl font-bold">정우선</h3>
-        <p class="text-primary">분석적 상담가</p>
-        <div class="text-left mt-4 text-sm text-gray-700 space-y-2">
-            <h4 class="font-semibold text-foreground">주요 약력:</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>백석 교육대학원 코칭심리학 석사</li>
-                <li>두잉협동조합 팀장</li>
-                <li>청소년상담사, 임상심리사</li>
-                <li>진로심리검사, MBTI전문강사</li>
-                <li>진로코칭, 라이프코칭</li>
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="gallery" class="py-24 px-4 bg-white">
       <div class="container-fluid max-w-[95%] mx-auto">
@@ -258,7 +265,9 @@
       <div class="container mx-auto max-w-7xl">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-4xl font-bold text-foreground mb-8">오시는 길 & 이용 안내</h2>
+                <h2 class="text-4xl font-bold text-foreground mb-8 leading-tight">
+                    오시는 길 <br class="block md:hidden" /> & 이용 안내
+                </h2>
                 <div class="space-y-6">
                     <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm">
                         <div class="bg-primary/10 p-3 rounded-full"><i data-lucide="map-pin" class="w-6 h-6 text-primary"></i></div>
